@@ -1,8 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe "Tasks", type: :request do
-  let(:user) { create :user }
-  before { login_as user }
+  include_context "logged_in"
 
   describe "GET /tasks" do
     before { get tasks_path }
