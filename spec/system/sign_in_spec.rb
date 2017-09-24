@@ -1,8 +1,6 @@
 require "rails_helper"
 
 RSpec.describe "Sign in", type: :system do
-  before { driven_by(:rack_test) }
-
   let!(:user) { create :user }
 
   it "sign in" do

@@ -1,8 +1,6 @@
 require "rails_helper"
 
 RSpec.describe "Sign up", type: :system do
-  before { driven_by(:rack_test) }
-
   it "sign up with email" do
     visit "/"
 
