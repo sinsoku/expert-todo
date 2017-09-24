@@ -1,11 +1,7 @@
 require "rails_helper"
 
 RSpec.describe "Sign out", type: :system do
-  let(:user) { create :user }
-  before do
-    driven_by(:rack_test)
-    login_as user
-  end
+  include_context "logged_in"
 
   it "sign out" do
     visit "/"
