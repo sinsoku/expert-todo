@@ -30,11 +30,6 @@ RSpec.configure do |config|
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
 
-  # If you're not using ActiveRecord, or you'd prefer not to run each of your
-  # examples within a transaction, remove the following line or assign false
-  # instead of true.
-  config.use_transactional_fixtures = true
-
   # RSpec Rails can automatically mix in different behaviours to your tests
   # based on their file location, for example enabling you to call `get` and
   # `post` in specs under `spec/controllers`.
@@ -63,5 +58,20 @@ RSpec.configure do |config|
   config.include Devise::Test::IntegrationHelpers, type: :request
   config.include Devise::Test::IntegrationHelpers, type: :system
 
-  config.before(type: :system) { driven_by(:rack_test) }
+  # database_rewinder
+  config.before(:suite) { DatabaseRewinder.clean_all }
+  config.after(:example) do |ex|
+    DatabaseRewinder.clean unless ex.metadata[:skip_clean]
+  end
+
+  config.before(type: :system) do |ex|
+    if ex.metadata[:js]
+      caps = Selenium::WebDriver::Remote::Capabilities.chrome(
+        chromeOptions: { args: %w[--headless] }
+      )
+      driven_by(:selenium, options: { desired_capabilities: caps })
+    else
+      driven_by(:rack_test)
+    end
+  end
 end
