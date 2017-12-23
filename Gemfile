@@ -40,7 +40,7 @@ group :development, :test do
   %w[rails core expectations mocks support].each do |name|
     gem "rspec-#{name}", github: "rspec/rspec-#{name}"
   end
-  gem 'factory_girl_rails'
+  gem 'factory_bot_rails'
   gem 'capybara'
 end
 
