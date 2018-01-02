@@ -67,3 +67,5 @@ gem 'devise'
 gem 'slim-rails'
 gem "asset_sync"
 gem "fog-aws"
+
+gem "coffee-script"
