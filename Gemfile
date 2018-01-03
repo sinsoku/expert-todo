@@ -69,3 +69,4 @@ gem "asset_sync"
 gem "fog-aws"
 
 gem "coffee-script"
+gem "rails-env-credentials", github: 'sinsoku/rails-env-credentials'

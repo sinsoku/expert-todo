@@ -104,6 +104,12 @@ GIT
   specs:
     rspec-support (3.8.pre)
 
+GIT
+  remote: https://github.com/sinsoku/rails-env-credentials.git
+  revision: 109c18379b582b86bf49f35b136eb0401e4d74ff
+  specs:
+    rails-env-credentials (0.0.1)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -298,6 +304,7 @@ DEPENDENCIES
   pg (~> 0.18)
   puma (~> 3.11)
   rails!
+  rails-env-credentials!
   rspec-core!
   rspec-expectations!
   rspec-mocks!
