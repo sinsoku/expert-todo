@@ -1,7 +1,7 @@
 require "rails_helper"
 
 RSpec.describe "Sign in", type: :system do
-  let!(:user) { create :user }
+  let!(:user) { create :user, :confirmed }
 
   it "sign in" do
     visit "/"
