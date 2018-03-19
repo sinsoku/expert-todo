@@ -4,13 +4,17 @@ RSpec.describe "Sign up", type: :system do
   it "sign up with email" do
     visit "/"
 
-    click_link "Sign up"
+    click_on "Sign up"
 
     attrs = attributes_for(:user)
-    fill_in "Email", with: attrs[:email]
-    fill_in "Password", with: attrs[:password]
-    fill_in "Password confirmation", with: attrs[:password]
-    click_button "Sign up"
+
+    within "#new_user" do
+      fill_in "Email", with: attrs[:email]
+      fill_in "Password", with: attrs[:password]
+      fill_in "Password confirmation", with: attrs[:password]
+
+      click_on "Sign up"
+    end
 
     expect(page).to have_text("Welcome! You have signed up successfully.")
   end

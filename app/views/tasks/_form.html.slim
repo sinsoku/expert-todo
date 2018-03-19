@@ -6,13 +6,13 @@
         - @task.errors.full_messages.each do |message|
           li = message
 
-  .field
+  .form-group
     = f.label :title
-    = f.text_field :title
-  .field
+    = f.text_field :title, class: "form-control"
+  .form-group
     = f.label :note
-    = f.text_area :note
-  .field
+    = f.text_area :note, class: "form-control"
+  .form-group
     = f.label :expired_at
-    = f.datetime_select :expired_at
-  .actions = f.submit
+    = f.datetime_local_field :expired_at, class: "form-control"
+  = f.submit class: "btn btn-primary"

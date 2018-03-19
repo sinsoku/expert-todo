@@ -1,8 +1,7 @@
-h1 Pages#top
-p Find me in app/views/pages/top.html.slim
+.container
+  .well
+    h1 ExpertTodo
+    p This is a sample application for study. I publish it for mutual code review in #{link_to("Step-to-Rails-Expert.rb", community_connpass_url)}, a Japanese Rails community.
 
-- if user_signed_in?
-  = link_to 'Sign out', destroy_user_session_path, method: :delete
-- else
-  = link_to 'Sign in', new_user_session_path
-  = link_to 'Sign up', new_user_registration_path
+  ul.list-unstyled
+    li= link_to icon("fab", "github", "sinsoku/expert-todo"), source_url

@@ -8,7 +8,8 @@ html
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
 
   body
-    p.notice= notice
-    p.alert= alert
+    == render "navbar"
 
-    == yield
+    .container
+      == render "notice" if notice
+      == yield

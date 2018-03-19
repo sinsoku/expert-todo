@@ -70,3 +70,4 @@ gem "coffee-script"
 gem "rails-env-credentials"
 gem 'bootstrap-sass'
 gem 'jquery-rails'
+gem 'font-awesome-sass'
