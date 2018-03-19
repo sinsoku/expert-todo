@@ -42,6 +42,7 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'factory_bot_rails'
   gem 'capybara'
+  gem "launchy"
 end
 
 group :development do
@@ -55,11 +56,8 @@ end
 
 group :test do
   gem 'selenium-webdriver'
-  gem 'database_rewinder'
+  gem "chromedriver-helper"
 end
-
-# Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'devise'
 gem 'slim-rails'
@@ -68,3 +66,6 @@ gem "fog-aws"
 
 gem "coffee-script"
 gem "rails-env-credentials"
+gem 'bootstrap-sass'
+gem 'jquery-rails'
+gem 'font-awesome-sass'

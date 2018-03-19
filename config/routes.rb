@@ -8,4 +8,7 @@ Rails.application.routes.draw do
   end
 
   root to: 'pages#top'
+
+  direct(:community_connpass) { "https://step-to-rails-expert-rb.connpass.com/" }
+  direct(:source) { "https://github.com/sinsoku/expert-todo" }
 end
