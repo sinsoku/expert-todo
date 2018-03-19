@@ -2,7 +2,9 @@ Rails.application.routes.draw do
   devise_for :users
 
   authenticated :user do
-    resources :tasks
+    resources :tasks do
+      resource :task_completion, module: :tasks, path: :completion, only: :create
+    end
 
     root to: "tasks#index", as: :user_root
   end
