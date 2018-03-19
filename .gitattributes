@@ -1,1 +1,1 @@
-config/*.yml.enc diff=rails-credentials
+config/credentials*.yml.enc diff=env_credentials

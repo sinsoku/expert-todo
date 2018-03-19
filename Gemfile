@@ -4,7 +4,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby "2.5.0"
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', github: 'rails/rails'
+gem 'rails', '5.2.0.rc1'
 # Use postgresql as the database for Active Record
 gem 'pg', '~> 0.18'
 # Use Puma as the app server
@@ -39,9 +39,7 @@ gem 'bootsnap', '>= 1.1.0', require: false
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
-  %w[rails core expectations mocks support].each do |name|
-    gem "rspec-#{name}", github: "rspec/rspec-#{name}"
-  end
+  gem 'rspec-rails'
   gem 'factory_bot_rails'
   gem 'capybara'
 end
@@ -69,4 +67,4 @@ gem "asset_sync"
 gem "fog-aws"
 
 gem "coffee-script"
-gem "rails-env-credentials", github: 'sinsoku/rails-env-credentials'
+gem "rails-env-credentials"
