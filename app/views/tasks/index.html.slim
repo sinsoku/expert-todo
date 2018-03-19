@@ -6,6 +6,7 @@ table.table
       th Title
       th Note
       th Expired at
+      th Completion
       th
       th
       th
@@ -16,6 +17,11 @@ table.table
         td= task.title
         td= task.note
         td= task.expired_at
+        th
+          - if task.completed?
+            = icon "fas", "check", l(task.completed_at, format: :long), class: "text-success"
+          - else
+            = link_to "Complete", task_task_completion_path(task), method: :post, class: "btn btn-success"
         td= link_to 'Show', task, class: "btn btn-default"
         td= link_to 'Edit', edit_task_path(task), class: "btn btn-default"
         td= link_to 'Destroy', task, class: "btn btn-danger", method: :delete, data: { confirm: 'Are you sure?' }
