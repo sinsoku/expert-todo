@@ -1,4 +1,4 @@
 RSpec.shared_context "logged_in" do
-  let(:current_user) { create :user }
+  let(:current_user) { create :user, :confirmed }
   before { login_as current_user }
 end

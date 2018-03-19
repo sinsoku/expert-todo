@@ -16,6 +16,19 @@ RSpec.describe "Sign up", type: :system do
       click_on "Sign up"
     end
 
-    expect(page).to have_text("Welcome! You have signed up successfully.")
+    expect(page).to have_text I18n.t(:signed_up_but_unconfirmed, scope: %i[devise registrations])
+
+    mail = Devise::Mailer.deliveries.first
+    expect(mail.subject).to eq I18n.t(:subject, scope: %i[devise mailer confirmation_instructions])
+  end
+
+  context "when the user unconfirmed an email" do
+    let(:user) { create :user }
+
+    it "confirms an email" do
+      visit user_confirmation_path(confirmation_token: user.confirmation_token)
+
+      expect(page).to have_text I18n.t(:confirmed, scope: %i[devise confirmations])
+    end
   end
 end
