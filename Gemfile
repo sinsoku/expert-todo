@@ -56,7 +56,7 @@ end
 
 group :test do
   gem 'selenium-webdriver'
-  gem 'database_rewinder'
+  gem "chromedriver-helper"
 end
 
 gem 'devise'
