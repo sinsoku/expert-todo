@@ -68,3 +68,5 @@ gem "fog-aws"
 
 gem "coffee-script"
 gem "rails-env-credentials"
+gem 'bootstrap-sass'
+gem 'jquery-rails'
