@@ -2,7 +2,7 @@
 
 if defined?(AssetSync)
   AssetSync.configure do |config|
-    config.fog_provider = 'AWS'
+    config.fog_provider = "AWS"
     config.aws_access_key_id = Rails.application.credentials.dig(:aws, :access_key_id)
     config.aws_secret_access_key = Rails.application.credentials.dig(:aws, :secret_access_key)
     # To use AWS reduced redundancy storage.
@@ -16,14 +16,14 @@ if defined?(AssetSync)
     #
     # Use http instead of https. Default should be "https" (at least for fog-aws)
     # config.fog_scheme = "http"
-    config.fog_directory = 'sinsoku-expert-todo'
+    config.fog_directory = "sinsoku-expert-todo"
 
     # Invalidate a file on a cdn after uploading files
     # config.cdn_distribution_id = "12345"
     # config.invalidate = ['file1.js']
 
     # Increase upload performance by configuring your region
-    config.fog_region = 'ap-northeast-1'
+    config.fog_region = "ap-northeast-1"
     #
     # Don't delete files from the store
     # config.existing_remote_files = "keep"

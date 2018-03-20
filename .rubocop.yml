@@ -34,9 +34,9 @@ Rails/FilePath:
 Style/Documentation:
   Enabled: false
 
-# TODO: fix a later
+# Respect the coding style in Rails
 Style/StringLiterals:
-  Enabled: false
+  EnforcedStyle: double_quotes
 
 Metrics/LineLength:
   Max: 120
