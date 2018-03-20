@@ -1,12 +1,12 @@
 class Task < ApplicationRecord
   validates :title, presence: true
 
-  has_one :task_completion
+  has_one :task_completion, dependent: :destroy
 
   def complete
     TaskCompletion.create_or_find_by!(task_id: id)
     true
-  rescue
+  rescue ActiveRecord::RecordInvalid
     false
   end
 
