@@ -43,4 +43,5 @@ jobs:
           paths:
             - ~/.cache/yarn
 
+      - run: bundle exec rubocop --parallel
       - run: rake

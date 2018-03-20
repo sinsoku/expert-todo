@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Rails.application.routes.draw do
   devise_for :users
 
@@ -9,7 +11,7 @@ Rails.application.routes.draw do
     root to: "tasks#index", as: :user_root
   end
 
-  root to: 'pages#top'
+  root to: "pages#top"
 
   direct(:community_connpass) { "https://step-to-rails-expert-rb.connpass.com/" }
   direct(:source) { "https://github.com/sinsoku/expert-todo" }
