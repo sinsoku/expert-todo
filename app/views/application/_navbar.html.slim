@@ -1,0 +1,16 @@
+nav.navbar.navbar-default
+  .container-fluid
+    .navbar-header
+      = link_to "ExpertTodo", root_path, class: "navbar-brand"
+
+    - if user_signed_in?
+      ul.nav.navbar-nav
+        li= link_to "Tasks", tasks_path
+
+      ul.nav.navbar-nav.navbar-right
+        li.navbar-text= icon("fas", "user", current_user.email)
+        li= link_to icon("fas", "sign-out-alt"), destroy_user_session_path, method: :delete, data: { confirm: "Are you sure?" }
+    - else
+      ul.nav.navbar-nav.navbar-right
+        li= button_to "Sign in", new_user_session_path, method: :get, form_class: "navbar-form", class: "btn btn-default"
+        li= button_to "Sign up", new_user_registration_path, method: :get, form_class: "navbar-form", class: "btn btn-primary"
