@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Tasks
   class TaskCompletionsController < ApplicationController
     # POST /tasks/:task_id/completion

@@ -35,10 +35,6 @@ Style/Documentation:
   Enabled: false
 
 # TODO: fix a later
-Style/FrozenStringLiteralComment:
-  Enabled: false
-
-# TODO: fix a later
 Style/StringLiterals:
   Enabled: false
 
