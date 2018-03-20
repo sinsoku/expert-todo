@@ -17,7 +17,7 @@ table.table
         td= task.title
         td= task.note
         td= task.expired_at
-        th
+        td
           - if task.completed?
             = icon "fas", "check", l(task.completed_at, format: :long), class: "text-success"
           - else
