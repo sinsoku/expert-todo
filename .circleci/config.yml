@@ -44,4 +44,4 @@ jobs:
             - ~/.cache/yarn
 
       - run: bundle exec rubocop --parallel
-      - run: rake
+      - run: bundle exec rake
