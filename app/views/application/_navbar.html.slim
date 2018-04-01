@@ -11,6 +11,9 @@ nav.navbar.navbar-default
         li.navbar-text= icon("fas", "user", current_user.email)
         li= link_to icon("fas", "sign-out-alt"), destroy_user_session_path, method: :delete, data: { confirm: "Are you sure?" }
     - else
+      ul.nav.navbar-nav data-controller="hello"
+        li
+          button.btn.btn-default.navbar-btn data-action="hello#greet" Hello
       ul.nav.navbar-nav.navbar-right
         li= button_to "Sign in", new_user_session_path, method: :get, form_class: "navbar-form", class: "btn btn-default"
         li= button_to "Sign up", new_user_registration_path, method: :get, form_class: "navbar-form", class: "btn btn-primary"
