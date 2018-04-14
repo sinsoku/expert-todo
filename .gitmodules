@@ -1,0 +1,3 @@
+[submodule "lib/rubocop-custom_cops"]
+	path = lib/rubocop-custom_cops
+	url = git@github.com:sinsoku/rubocop-custom_cops.git

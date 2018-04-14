@@ -1,5 +1,13 @@
 # frozen_string_literal: true
 
+begin
+  lib = File.expand_path("../rubocop-custom_cops/lib", __FILE__)
+  $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
+  require "rubocop-custom_cops"
+rescue LoadError => e
+  raise unless e.message.include?('rubocop-custom_cops')
+end
+
 require "rubocop/config_loader_resolver"
 
 module RuboCop
