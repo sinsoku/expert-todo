@@ -4,7 +4,7 @@ module Tasks
   class TaskCompletionsController < ApplicationController
     # POST /tasks/:task_id/completion
     def create
-      task = Task.find(params[:task_id])
+      task = current_user.tasks.find(params[:task_id])
 
       if task.complete
         flash.notice = "Task was successfully completed."
