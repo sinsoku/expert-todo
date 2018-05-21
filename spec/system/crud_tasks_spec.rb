@@ -20,7 +20,7 @@ RSpec.describe "Tasks", type: :system do
   end
 
   context do
-    let!(:task) { create :task }
+    let!(:task) { create :task, user: current_user }
 
     it "edit task" do
       visit tasks_path

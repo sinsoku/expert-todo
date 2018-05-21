@@ -6,7 +6,7 @@ RSpec.describe "TaskCompletion", type: :system do
   include_context "logged_in"
 
   context "when the user has a uncomplete task" do
-    let!(:task) { create :task }
+    let!(:task) { create :task, user: current_user }
 
     it "complets a task" do
       visit "/"

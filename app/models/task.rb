@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class Task < ApplicationRecord
+  belongs_to :user, optional: true
+
   validates :title, presence: true
 
   has_one :task_completion, dependent: :destroy

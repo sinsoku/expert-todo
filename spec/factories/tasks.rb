@@ -5,5 +5,6 @@ FactoryBot.define do
     title "MyString"
     note "MyText"
     expired_at "2017-09-25 07:53:24"
+    user nil
   end
 end
