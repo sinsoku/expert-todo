@@ -72,3 +72,4 @@ gem "rails-env-credentials"
 gem "bootstrap-sass"
 gem "jquery-rails"
 gem "font-awesome-sass"
+gem "aws-sdk-s3", require: false
