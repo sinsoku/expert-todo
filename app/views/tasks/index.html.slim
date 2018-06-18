@@ -14,7 +14,11 @@ table.table
   tbody
     - @tasks.each do |task|
       tr id=dom_id(task)
-        td= task.title
+        td
+          - if task.files.attached?
+            = icon "far", "file-alt", task.title
+          - else
+            = task.title
         td= task.note
         td= task.expired_at
         td

@@ -6,6 +6,7 @@ class Task < ApplicationRecord
   validates :title, presence: true
 
   has_one :task_completion, dependent: :destroy
+  has_many_attached :files
 
   def complete
     TaskCompletion.create_or_find_by!(task_id: id)

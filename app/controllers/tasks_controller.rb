@@ -6,7 +6,8 @@ class TasksController < ApplicationController
   # GET /tasks
   # GET /tasks.json
   def index
-    @tasks = current_user.tasks.includes(:task_completion)
+    @tasks = current_user.tasks.with_attached_files
+      .includes(:task_completion)
   end
 
   # GET /tasks/1
@@ -28,7 +29,7 @@ class TasksController < ApplicationController
     @task.user = current_user
 
     respond_to do |format|
-      if @task.save
+      if @task.save && @task.files.attach(task_files_params[:files])
         format.html { redirect_to @task, notice: "Task was successfully created." }
         format.json { render :show, status: :created, location: @task }
       else
@@ -41,6 +42,7 @@ class TasksController < ApplicationController
   # PATCH/PUT /tasks/1
   # PATCH/PUT /tasks/1.json
   def update
+    # @task.files.attach(task_files_params[:files])
     respond_to do |format|
       if @task.update(task_params)
         format.html { redirect_to @task, notice: "Task was successfully updated." }
@@ -72,5 +74,9 @@ class TasksController < ApplicationController
   # Never trust parameters from the scary internet, only allow the white list through.
   def task_params
     params.require(:task).permit(:title, :note, :expired_at)
+  end
+
+  def task_files_params
+    params.require(:task).permit(files: [])
   end
 end
