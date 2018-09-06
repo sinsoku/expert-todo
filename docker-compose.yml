@@ -1,0 +1,28 @@
+version: '3'
+
+services:
+  db:
+    image: postgres:alpine
+  web:
+    build:
+      context: .
+      dockerfile: docker/app/Dockerfile
+    environment:
+      DATABASE_URL: postgres://postgres:@db:5432
+      BUNDLE_JOBS: 3
+      BUNDLE_RETRY: 3
+      BUNDLE_PATH: vendor/bundle
+    volumes:
+      - .:/app
+      - bundle:/app/vendor/bundle
+      - node_modules:/app/node_modules
+    depends_on:
+      - db
+    ports:
+      - "3000:3000"
+    stdin_open: true
+    tty: true
+
+volumes:
+  bundle:
+  node_modules:
