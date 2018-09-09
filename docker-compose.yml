@@ -13,7 +13,20 @@ services:
       BUNDLE_RETRY: 3
       BUNDLE_PATH: vendor/bundle
     volumes:
-      - .:/app
+      - ./Gemfile.lock:/app/Gemfile.lock
+      - ./Gemfile:/app/Gemfile
+      - ./Rakefile:/app/Rakefile
+      - ./app:/app/app
+      - ./bin:/app/bin
+      - ./config:/app/config
+      - ./db:/app/db
+      - ./docs:/app/docs
+      - ./lib:/app/lib
+      - ./log:/app/log
+      - ./public:/app/public
+      - ./spec:/app/spec
+      - ./storage:/app/storage
+      - ./tmp:/app/tmp
       - bundle:/app/vendor/bundle
       - node_modules:/app/node_modules
     depends_on:
